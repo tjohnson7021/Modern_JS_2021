@@ -11,3 +11,9 @@ console.log(firstName);
 // change variable
 firstName = 'Jonas';
 console.log(firstName);
+
+
+/*
+* LECTURE: The Conditional (Ternary) Operator
+*/
+
