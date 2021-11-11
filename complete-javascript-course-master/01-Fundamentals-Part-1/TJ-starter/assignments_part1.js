@@ -88,5 +88,35 @@ if (population > 33000000){
 } else {
   console.log(`The ${country}'s population is ${33000000 - population} below average`)  
 }
-// 2. Aftercheckingtheresult,changethepopulationtemporarilyto13andthento 130. See the different results, and set the population back to original
+// 2. After checking the result, change the population temporarily to 13 and then to 130. See the different results, and set the population back to original
 
+population = 13000000;
+console.log(`The population is now set to: ${population}`);
+
+if (population > 33000000){
+  console.log(`The ${country}'s population is above average.`);
+} else {
+  console.log(`The ${country}'s population is ${33000000 - population} below average`)  
+}
+
+population = 130000000;
+console.log(`The population is now set to: ${population}`);
+
+if (population > 33000000){
+  console.log(`The ${country}'s population is above average.`);
+} else {
+  console.log(`The ${country}'s population is ${33000000 - population} below average`)  
+}
+
+
+/*
+* LECTURE: Type Conversion and Coercion
+*/
+    console.log('9' - '5');
+    console.log('19' - '13' + '17');
+    console.log('19' - '13' + 17);
+    console.log('123' < 57);
+    console.log(5 + 6 + '4' + 9 - 4 - 2);
+
+
+    
