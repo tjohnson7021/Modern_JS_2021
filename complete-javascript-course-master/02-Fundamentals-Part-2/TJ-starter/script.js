@@ -31,3 +31,19 @@ const smoothie = fruitProcessor(5,3);
 console.log(smoothie);
 
 console.log(fruitProcessor(4,4));
+
+// Function declaration - CAN be called before definition
+const age1 = calcAge1(1991);
+
+function calcAge1(birthYear) {
+    return 2037 - birthYear;
+  }
+
+  
+  // Function expression - CANNOT be called before declaration
+  const calcAge2 = function (birthYear) {
+    return 2037 - birthYear;
+  }
+  const age2 = calcAge2(1991);
+  
+  console.log(age1, age2);
