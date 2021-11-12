@@ -1,4 +1,5 @@
 # Modern_JS_2021
+
  The Complete JavaScript Course 2021: From Zero to Expert! The modern JavaScript course for everyone! Master JavaScript with projects, challenges and theory. Many courses in one!
 
 
@@ -15,3 +16,6 @@
 9. LECTURE: Logical Operators
 10. LECTURE: The switch Statement
 11. LECTURE: The Conditional (Ternary) Operator
+=======
+ Contains exercises and Coding Challenges from Modern JS 2021 course.
+
