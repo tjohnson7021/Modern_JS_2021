@@ -28,7 +28,7 @@ let language;
 // console.log(typeof language);
 
 
-console.log('**********************************************************************')
+console.log('****************/ JavaScript Fundamentals – Part 1 /*****************')
 /*
 * LECTURE: let, const and var
 */
