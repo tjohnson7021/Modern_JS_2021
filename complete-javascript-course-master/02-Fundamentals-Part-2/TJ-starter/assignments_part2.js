@@ -188,15 +188,13 @@ const myCountry = {
     describe: function() {
         return console.log(`The ${this.country} has ${this.population/1000000} million ${this.language}-speaking people, ${this.neighbors.length} neighbouring countries and a capital called ${this.capital}.`)
 
+    },
+
+    checkIsland: function () {
+        return this.isIsland = this.neighbors.length > 0 ? false : true;
+
     }
-
-    checkIsland: function() {
-
-        this.push('isIsland: ')
-        if(this.neighbors.length > 0){
-
-        }
-    }
+    
 }
 
 console.log(myCountry);
@@ -233,4 +231,15 @@ console.log('*******************************************************************
 myCountry.describe();
 
 // 3. Add a method called 'checkIsland' to the 'myCountry' object. This method will set a new property on the object, called 'isIsland'. 'isIsland' will be true if there are no neighbouring countries, and false if there are. Use the ternary operator to set the property.
+console.log(myCountry.checkIsland());
 
+
+
+
+
+console.log('*******************************************************************');
+/*
+* LECTURE: Iteration: The for Loop
+*/
+
+// 1. There are elections in your country! In a small town, there are only 50 voters. Use a for loop to simulate the 50 people voting, by logging a string like this to the console (for numbers 1 to 50): 'Voter number 1 is currently voting'.
