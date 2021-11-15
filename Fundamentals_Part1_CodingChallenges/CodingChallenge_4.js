@@ -15,7 +15,7 @@ const bill_1 = 275;
 const bill_2 = 40;
 const bill_3 = 430;
 
-let tip = (bill_1 >=50 && bill_1<=300) ? bill_1*(15/100) : bill_1*(20/100)
+let tip = (bill_1 >=50 && bill_1<=300) ? bill_1*(15/100) : bill_1*(20/100);
 
 console.log(`Bill 1 was ${bill_1}, the tip was ${tip} and the total value ${bill_1 + tip}`);
 
