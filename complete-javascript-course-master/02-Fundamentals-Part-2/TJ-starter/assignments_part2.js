@@ -124,7 +124,7 @@ console.log(has4Elements);
 
 // 3. Create an array called 'percentages' containing the percentages of the world population for these 4 population values. Use the function 'percentageOfWorld1' that you created earlier to compute the 4 percentage values
 
-const percentages = [percentageOfWorld1(usaPop), percentageOfWorld1(japanPop), percentageOfWorld1(russiaPop), percentageOfWorld1(chinaPop)];
+const percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[3])];
 
 console.log(percentages);
 
@@ -243,3 +243,34 @@ console.log('*******************************************************************
 */
 
 // 1. There are elections in your country! In a small town, there are only 50 voters. Use a for loop to simulate the 50 people voting, by logging a string like this to the console (for numbers 1 to 50): 'Voter number 1 is currently voting'.
+
+for (let count = 1; count <= 50; count++){
+    console.log(`Voter #${count} is currently voting 0.o`);
+}
+
+
+console.log('*******************************************************************');
+
+/*
+* LECTURE: Looping Arrays, Breaking and Continuing
+*/
+
+// 1. Let's bring back the 'populations' array from a previous assignment.
+
+// 2. Use a for loop to compute an array called 'percentages2' containing the percentages of the world population for the 4 population values. Use the function 'percentageOfWorld1' that you created earlier.
+const percentages2 =[];
+
+for(let i = 0; i < populations.length; i++){
+    percentages2[i] = percentageOfWorld1(populations[i]); 
+}
+// 3. Confirm that 'percentages2' contains exactly the same values as the 'percentages' array that we created manually in the previous assignment, and reflect on how much better this solution is
+
+console.log(percentages);
+console.log(percentages2);
+
+
+console.log('*******************************************************************');
+
+/*
+* LECTURE: Looping Backwards and Loops in Loops
+*/
