@@ -277,8 +277,40 @@ console.log('*******************************************************************
 
 // 1. Store this array of arrays into a variable called 'listOfNeighbours' [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden', 'Russia']];
 
-const listOfNeighbours = [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden', 'Russia']];
-
+const listOfNeighbors = [ ['Canada', 'Mexico'], ['Spain'],
+['Norway', 'Sweden', 'Russia'],
+];
+console.log(listOfNeighbors)
 // 2. Log only the neighbouring countries to the console, one by one, not the entire arrays. Log a string like 'Neighbour: Canada' for each country.
 
 // 3. You will need a loop inside a loop for this. This is actually a bit tricky, so don't worry if it's too difficult for you! But you can still try to figure this out anyway.
+
+for(let k = 0; k < listOfNeighbors.length; k++){
+    for(let v = 0; v < listOfNeighbors[k].length; v++){
+        console.log(`Neighbor: ${listOfNeighbors[k][v]}`);
+    }
+}
+
+
+
+console.log('*******************************************************************');
+
+/*
+* LECTURE: The while Loop
+*/
+
+// 1. Recreate the challenge from the lecture 'Looping Arrays, Breaking and Continuing', but this time using a while loop (call the array 'percentages3').
+
+
+const percentages3 =[];
+let z = 0;
+while(z < populations.length){
+    percentages3[z] = percentageOfWorld1(populations[z]);
+    z++;
+}
+
+ console.log(percentages3);
+
+// 2. Reflect on what solution you like better for this task: the for loop or the while loop?
+
+console.log('**************************/  END OF PART /****************************')
