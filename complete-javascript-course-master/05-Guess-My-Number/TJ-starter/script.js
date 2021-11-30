@@ -50,37 +50,26 @@ document.querySelector(".check").addEventListener("click", function() {
         document.querySelector(".highscore").textContent = highScore;
       }
 
-    // if the guess is higher than the secret number...
-  } else if(guess > secretNumber){
-      //...and the score is 0...
-      if(score > 0){
-        // display the "too high" message.
+    //When the guess is wrong
+  } else if (guess !== secretNumber && score > 1) {
+
+
+      document.querySelector('body').style.backgroundColor = "red";
+      score--;
+      document.querySelector(".score").textContent = score;
+
+      if (guess > secretNumber){
+
         document.querySelector(".message").textContent = "(＋_＋) Too High!";
-        // change background color of screen to indicate incorrect answer.
-        document.querySelector('body').style.backgroundColor = "red";
-        //...decrease the score...
-        score--;
-        //...display the new score.
-        document.querySelector(".score").textContent = score;
-      } else { //...the score is = 0 and...
-          // display a message that the game is over
-          document.querySelector(".message").textContent = "(－‸ლ) ...Dude...(gameover)";
-      }
-    // if the guess is lower than the secret number...
-  } else if(guess < secretNumber){
-      //...and the score is 0...
-      if(score > 1){
-        //display the "too low" message.
+
+      } else {
+
         document.querySelector(".message").textContent = "(￣□￣」) Too Low!";
-        //change background color of screen to indicate incorrect answer.
-        document.querySelector('body').style.backgroundColor = "red";
-        //decrease the score,
-        score--;
-        // display the new score.
-        document.querySelector(".score").textContent = score;
-      } else { //...the score is = 0 and...
-          document.querySelector(".message").textContent = "(－‸ლ) ...Dude...(gameover)";
       }
+
+  } else { //...the score is = 0 and...
+      document.querySelector(".score").textContent = 0;
+      document.querySelector(".message").textContent = "(－‸ლ) ...Dude...(gameover)";
   }
 });
 
