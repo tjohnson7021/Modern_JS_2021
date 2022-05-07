@@ -1,3 +1,5 @@
+//Completed notes 05-06-2022
+
 'use strict';
 
 console.log('this.<...>',this);
