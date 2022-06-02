@@ -87,3 +87,28 @@ console.log('\n');
 console.log('*** order() function ***');
 
 console.log(restaurant.order(2,0));
+
+//receive 2 return values froma function
+const [starter, mainCourse] = restaurant.order(2,0);
+
+console.log(starter, mainCourse);
+
+const nested = [2,4,[5,6]];
+
+//destructuring and assigning variables taken from an array
+// const [i, ,j] = nested;
+// console.log(i,j);
+
+//destructuring and assigning variables taken from an array
+const[i, ,[j,k]] = nested;
+console.log(i,j,k);
+
+// Default vcalues
+// const [p,q,r] = [8,9];
+// console.log(p,q,r);
+//the value for r logs as 'undefined'
+
+//DEFAULT VALUES
+const [p =1,q=1,r=1] = [8,9];
+console.log(p,q,r);
+
