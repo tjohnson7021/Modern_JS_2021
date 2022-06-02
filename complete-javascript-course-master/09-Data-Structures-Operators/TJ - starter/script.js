@@ -36,8 +36,65 @@ const restaurant = {
       close: 24,
     },
   },
+
+    //function that will be passed as an argument
+  orderDelivery: function({starterIndex = 1, mainIndex = 0, time = '20:00', address}){
+    console.log(`Order received! ${this.starterMenu[starterIndex]}
+    and ${this.mainMenu[mainIndex]} will be delivered to
+    ${address} at ${time}`);
+  },
 };
 
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+restaurant.orderDelivery({
+  address: 'Via del Sole, 21',
+  starterIndex: 1,
+})
+
+
+console.log('*** DESTRUCTURING OBJECTS ***');
+/*** DESTRUCTURING OBJECTS ***/
+
+const {name, openingHours, categories} = restaurant;
+console.log(name, openingHours, categories);
+
+// What if we want the variable names to be different from the property names?...
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+
+console.log(restaurantName, hours, tags);
+
+console.log('=== Default values ===');
+// Let's say we want to create a menu from the existing restaurant object (i.e. restaurant.menu doesn't exist)
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+console.log('=== Mutating variables ===');
+let t = 111;
+let s = 999;
+
+const obj = { t: 23, s: 7, v: 14 };
+
+({ t, s} = obj);
+
+console.log(t, s);
+
+console.log('=== Nested Objects ===');
+const { fri: {open: fridayOpen, close: fridayClose} } = openingHours;
+console.log(fridayOpen, fridayClose);
+
+
+
+console.log('');
 console.log('*** DESTRUCTURING ARRAYS ***');
 /*** DESTRUCTURING ARRAYS ***/
 
@@ -84,7 +141,7 @@ console.log(main, secondary);
 //OUTPUT: // Vegetarian Italian
 
 console.log('\n');
-console.log('*** order() function ***');
+console.log('+++ order() function +++');
 
 console.log(restaurant.order(2,0));
 
