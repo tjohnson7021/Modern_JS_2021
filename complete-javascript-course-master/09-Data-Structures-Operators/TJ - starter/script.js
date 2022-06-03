@@ -40,132 +40,217 @@ const restaurant = {
     //function that will be passed as an argument
   orderDelivery: function({starterIndex = 1, mainIndex = 0, time = '20:00', address}){
     console.log(`Order received! ${this.starterMenu[starterIndex]}
-    and ${this.mainMenu[mainIndex]} will be delivered to
-    ${address} at ${time}`);
+                and ${this.mainMenu[mainIndex]} will be delivered to
+                ${address} at ${time}`);
   },
+
+  orderPasta: function(ing1, ing2, ing3){
+    console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3} `);
+  }
 };
 
-restaurant.orderDelivery({
-  time: '22:30',
-  address: 'Via del Sole, 21',
-  mainIndex: 2,
-  starterIndex: 2,
-});
+//calling new delivery function
+// restaurant.orderDelivery({
+//   time: '22:30',
+//   address: 'Via del Sole, 21',
+//   mainIndex: 2,
+//   starterIndex: 2,
+// });
 
-restaurant.orderDelivery({
-  address: 'Via del Sole, 21',
-  starterIndex: 1,
-})
+// restaurant.orderDelivery({
+//   address: 'Via del Sole, 21',
+//   starterIndex: 1,
+// })
 
+console.log('*** THE SPREAD OPERATOR ***');
+/*** THE SPREAD OPERATOR ***/
 
-console.log('*** DESTRUCTURING OBJECTS ***');
-/*** DESTRUCTURING OBJECTS ***/
+const arr = [7,8,8];
+// this is one way of creating a new array from an old array
+const badNewArray = [1,2, arr[0], arr[1], arr[2]];
+console.log(badNewArray);
 
-const {name, openingHours, categories} = restaurant;
-console.log(name, openingHours, categories);
-
-// What if we want the variable names to be different from the property names?...
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tags,
-} = restaurant;
-
-console.log(restaurantName, hours, tags);
-
-console.log('=== Default values ===');
-// Let's say we want to create a menu from the existing restaurant object (i.e. restaurant.menu doesn't exist)
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
-
-console.log('=== Mutating variables ===');
-let t = 111;
-let s = 999;
-
-const obj = { t: 23, s: 7, v: 14 };
-
-({ t, s} = obj);
-
-console.log(t, s);
-
-console.log('=== Nested Objects ===');
-const { fri: {open: fridayOpen, close: fridayClose} } = openingHours;
-console.log(fridayOpen, fridayClose);
-
-
-
-console.log('');
-console.log('*** DESTRUCTURING ARRAYS ***');
-/*** DESTRUCTURING ARRAYS ***/
-
-//example without desructuring
-const arr = [2,3,4];
-
-const a = arr[0];
-const b = arr[1];
-const c = arr[2];
-console.log('Regular Assigment: ',a,b,c);
-
-//destructured assignment
-const [x,y,z] = arr;
-console.log('Destrcutured Assigment: ',x,y,z);
-console.log('original array: ',arr);
+//creating a new array from an old array using the spread operator (...)
 console.log('\n');
+console.log('+++ with spread operator(...) +++');
+const newArr = [1, 2, ...arr];
+console.log(newArr);
 
-//destructures only the 1st and 2nd variables in the array
-const [first, second] = restaurant.categories;
-console.log(first, second);
-//OUTPUT: // Italian Pizzeria
-
-//destructures the 1st and 3rd variables in the array, skipping the 2nd
-const [phirst, ,sekund] = restaurant.categories;
-console.log(phirst, sekund);
-//OUTPUT: // Italian Vegetarian
+//creating a new array from an old array WITHOUT using the spread operator creates a NESTED ARRAY
+console.log('\n');
+console.log('+++ without spread operator(...) +++');
+const newArrWithoutSpread = [1, 2, arr];
+console.log(newArrWithoutSpread);
 
 
-// SWITCH 1st and 3rd Categories
-let [main, ,secondary] = restaurant.categories;
-console.log(main, secondary);
-//OUTPUT: // Italian Vegetarian
-
-//Don't do this:
-  // const temp = main;
-  // main = secondary;
-  // secondary = temp;
-
-//DO this:
-[main, secondary] = [secondary, main];
-
-console.log('*** After switching values');
-console.log(main, secondary);
-//OUTPUT: // Vegetarian Italian
+//log the individual entries to the console using the spread operator
+console.log('\n');
+console.log('+++ console.log() with spread operator(...) +++');
+console.log(...newArr);
 
 console.log('\n');
-console.log('+++ order() function +++');
+console.log('+++ create newMenu using restaurant.mainMenu +++');
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
 
-console.log(restaurant.order(2,0));
+/*
+the spread operator takes ALL of the elements from the array, and does not create new variables. It
+can only be used in places where we would out values separated by commas
+*/
 
-//receive 2 return values froma function
-const [starter, mainCourse] = restaurant.order(2,0);
+//Copy Array
+const mainMenuCopy = [...restaurant.mainMenu];
 
-console.log(starter, mainCourse);
+//Join 2 arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu]
+console.log(menu);
 
-const nested = [2,4,[5,6]];
+/*
+The spread operator works on all Iterables (arrays, strings, maps, or sets)
+*/
+console.log('\n');
+console.log('+++ spread operator works on all iterables (arrays, strings, maps, or sets) +++');
+const str = 'Jonas';
+const letters = [...str, ' ', 'S.'];
+console.log(letters);
+console.log(...str);
 
-//destructuring and assigning variables taken from an array
-// const [i, ,j] = nested;
-// console.log(i,j);
+// const ingredients = [
+//   prompt("Let's make pasta! Ingredient 1?"),
+//   prompt("Ingredient 2? "),
+//   prompt("Ingredient 3? "),
+// ];
+// console.log(ingredients);
 
-//destructuring and assigning variables taken from an array
-const[i, ,[j,k]] = nested;
-console.log(i,j,k);
+// restaurant.orderPasta(...ingredients);
 
-// Default vcalues
-// const [p,q,r] = [8,9];
+/**
+ * As of ES2018, the spread operator works on OBJECTS
+ */
+ console.log('\n');
+ console.log('+++ using the (...) with Objects (ES2018) +++');
+
+const newRestaurant = {
+  foundedIn: 1998,
+  ...restaurant,
+  founder: 'Guiseppe'
+};
+
+console.log(newRestaurant);
+
+const restaurantCopy = {...restaurant};
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
+// console.log('*** DESTRUCTURING OBJECTS ***');
+// /*** DESTRUCTURING OBJECTS ***/
+
+// const {name, openingHours, categories} = restaurant;
+// console.log(name, openingHours, categories);
+
+// // What if we want the variable names to be different from the property names?...
+// const {
+//   name: restaurantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
+
+// console.log(restaurantName, hours, tags);
+
+// console.log('=== Default values ===');
+// // Let's say we want to create a menu from the existing restaurant object (i.e. restaurant.menu doesn't exist)
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
+
+// console.log('=== Mutating variables ===');
+// let t = 111;
+// let s = 999;
+
+// const obj = { t: 23, s: 7, v: 14 };
+
+// ({ t, s} = obj);
+
+// console.log(t, s);
+
+// console.log('=== Nested Objects ===');
+// const { fri: {open: fridayOpen, close: fridayClose} } = openingHours;
+// console.log(fridayOpen, fridayClose);
+
+
+
+// console.log('');
+// console.log('*** DESTRUCTURING ARRAYS ***');
+// /*** DESTRUCTURING ARRAYS ***/
+
+// //example without desructuring
+// const arr = [2,3,4];
+
+// const a = arr[0];
+// const b = arr[1];
+// const c = arr[2];
+// console.log('Regular Assigment: ',a,b,c);
+
+// //destructured assignment
+// const [x,y,z] = arr;
+// console.log('Destrcutured Assigment: ',x,y,z);
+// console.log('original array: ',arr);
+// console.log('\n');
+
+// //destructures only the 1st and 2nd variables in the array
+// const [first, second] = restaurant.categories;
+// console.log(first, second);
+// //OUTPUT: // Italian Pizzeria
+
+// //destructures the 1st and 3rd variables in the array, skipping the 2nd
+// const [phirst, ,sekund] = restaurant.categories;
+// console.log(phirst, sekund);
+// //OUTPUT: // Italian Vegetarian
+
+
+// // SWITCH 1st and 3rd Categories
+// let [main, ,secondary] = restaurant.categories;
+// console.log(main, secondary);
+// //OUTPUT: // Italian Vegetarian
+
+// //Don't do this:
+//   // const temp = main;
+//   // main = secondary;
+//   // secondary = temp;
+
+// //DO this:
+// [main, secondary] = [secondary, main];
+
+// console.log('*** After switching values');
+// console.log(main, secondary);
+// //OUTPUT: // Vegetarian Italian
+
+// console.log('\n');
+// console.log('+++ order() function +++');
+
+// console.log(restaurant.order(2,0));
+
+// //receive 2 return values froma function
+// const [starter, mainCourse] = restaurant.order(2,0);
+
+// console.log(starter, mainCourse);
+
+// const nested = [2,4,[5,6]];
+
+// //destructuring and assigning variables taken from an array
+// // const [i, ,j] = nested;
+// // console.log(i,j);
+
+// //destructuring and assigning variables taken from an array
+// const[i, ,[j,k]] = nested;
+// console.log(i,j,k);
+
+// // Default vcalues
+// // const [p,q,r] = [8,9];
+// // console.log(p,q,r);
+// //the value for r logs as 'undefined'
+
+// //DEFAULT VALUES
+// const [p =1,q=1,r=1] = [8,9];
 // console.log(p,q,r);
-//the value for r logs as 'undefined'
-
-//DEFAULT VALUES
-const [p =1,q=1,r=1] = [8,9];
-console.log(p,q,r);
 
