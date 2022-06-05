@@ -60,88 +60,103 @@ const restaurant = {
 // restaurant.orderDelivery({
 //   address: 'Via del Sole, 21',
 //   starterIndex: 1,
-// })
-
-console.log('*** THE SPREAD OPERATOR ***');
-/*** THE SPREAD OPERATOR ***/
-
-const arr = [7,8,8];
-// this is one way of creating a new array from an old array
-const badNewArray = [1,2, arr[0], arr[1], arr[2]];
-console.log(badNewArray);
-
-//creating a new array from an old array using the spread operator (...)
-console.log('\n');
-console.log('+++ with spread operator(...) +++');
-const newArr = [1, 2, ...arr];
-console.log(newArr);
-
-//creating a new array from an old array WITHOUT using the spread operator creates a NESTED ARRAY
-console.log('\n');
-console.log('+++ without spread operator(...) +++');
-const newArrWithoutSpread = [1, 2, arr];
-console.log(newArrWithoutSpread);
+// });
 
 
-//log the individual entries to the console using the spread operator
-console.log('\n');
-console.log('+++ console.log() with spread operator(...) +++');
-console.log(...newArr);
-
-console.log('\n');
-console.log('+++ create newMenu using restaurant.mainMenu +++');
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
-
-/*
-the spread operator takes ALL of the elements from the array, and does not create new variables. It
-can only be used in places where we would out values separated by commas
-*/
-
-//Copy Array
-const mainMenuCopy = [...restaurant.mainMenu];
-
-//Join 2 arrays
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu]
-console.log(menu);
-
-/*
-The spread operator works on all Iterables (arrays, strings, maps, or sets)
-*/
-console.log('\n');
-console.log('+++ spread operator works on all iterables (arrays, strings, maps, or sets) +++');
-const str = 'Jonas';
-const letters = [...str, ' ', 'S.'];
-console.log(letters);
-console.log(...str);
-
-// const ingredients = [
-//   prompt("Let's make pasta! Ingredient 1?"),
-//   prompt("Ingredient 2? "),
-//   prompt("Ingredient 3? "),
-// ];
-// console.log(ingredients);
-
-// restaurant.orderPasta(...ingredients);
+console.log('*** THE REST OPERATOR ***');
+/*** THE REST OPERATOR ***/
 
 /**
- * As of ES2018, the spread operator works on OBJECTS
+ * The SPREAD operator works on the RIGHT side: 
  */
- console.log('\n');
- console.log('+++ using the (...) with Objects (ES2018) +++');
+const arr =[1,2,...[3,4]];
 
-const newRestaurant = {
-  foundedIn: 1998,
-  ...restaurant,
-  founder: 'Guiseppe'
-};
+/**
+ * The REST operator works on the LEFT side: 
+ */
+const [a,b,...others] = [1,2,3,4,5];
+console.log(a,b, others);
 
-console.log(newRestaurant);
+// console.log('*** THE SPREAD OPERATOR ***');
+// /*** THE SPREAD OPERATOR ***/
 
-const restaurantCopy = {...restaurant};
-restaurantCopy.name = 'Ristorante Roma';
-console.log(restaurantCopy.name);
-console.log(restaurant.name);
+// const arr = [7,8,8];
+// // this is one way of creating a new array from an old array
+// const badNewArray = [1,2, arr[0], arr[1], arr[2]];
+// console.log(badNewArray);
+
+// //creating a new array from an old array using the spread operator (...)
+// console.log('\n');
+// console.log('+++ with spread operator(...) +++');
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
+
+// //creating a new array from an old array WITHOUT using the spread operator creates a NESTED ARRAY
+// console.log('\n');
+// console.log('+++ without spread operator(...) +++');
+// const newArrWithoutSpread = [1, 2, arr];
+// console.log(newArrWithoutSpread);
+
+
+// //log the individual entries to the console using the spread operator
+// console.log('\n');
+// console.log('+++ console.log() with spread operator(...) +++');
+// console.log(...newArr);
+
+// console.log('\n');
+// console.log('+++ create newMenu using restaurant.mainMenu +++');
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
+
+// /*
+// the spread operator takes ALL of the elements from the array, and does not create new variables. It
+// can only be used in places where we would out values separated by commas
+// */
+
+// //Copy Array
+// const mainMenuCopy = [...restaurant.mainMenu];
+
+// //Join 2 arrays
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu]
+// console.log(menu);
+
+// /*
+// The spread operator works on all Iterables (arrays, strings, maps, or sets)
+// */
+// console.log('\n');
+// console.log('+++ spread operator works on all iterables (arrays, strings, maps, or sets) +++');
+// const str = 'Jonas';
+// const letters = [...str, ' ', 'S.'];
+// console.log(letters);
+// console.log(...str);
+
+// // const ingredients = [
+// //   prompt("Let's make pasta! Ingredient 1?"),
+// //   prompt("Ingredient 2? "),
+// //   prompt("Ingredient 3? "),
+// // ];
+// // console.log(ingredients);
+
+// // restaurant.orderPasta(...ingredients);
+
+// /**
+//  * As of ES2018, the spread operator works on OBJECTS
+//  */
+//  console.log('\n');
+//  console.log('+++ using the (...) with Objects (ES2018) +++');
+
+// const newRestaurant = {
+//   foundedIn: 1998,
+//   ...restaurant,
+//   founder: 'Guiseppe'
+// };
+
+// console.log(newRestaurant);
+
+// const restaurantCopy = {...restaurant};
+// restaurantCopy.name = 'Ristorante Roma';
+// console.log(restaurantCopy.name);
+// console.log(restaurant.name);
 
 // console.log('*** DESTRUCTURING OBJECTS ***');
 // /*** DESTRUCTURING OBJECTS ***/
